@@ -18,6 +18,8 @@ import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,11 +27,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.musaib.catfact.ui.theme.MainGreen
+import com.musaib.catfact.viewModel.MainViewModel
 
 
 @Composable
-fun MainScreen(modifier: Modifier) {
+fun MainScreenUI(
+    modifier: Modifier,
+    fact: String,
+    buttonClicked: () -> Unit = {},
+) {
 
     Scaffold(
         modifier = modifier
@@ -72,6 +80,7 @@ fun MainScreen(modifier: Modifier) {
 
                     Spacer(modifier.height(12.dp))
 
+
                     Column(
                         modifier = modifier
                             .fillMaxWidth()
@@ -82,7 +91,7 @@ fun MainScreen(modifier: Modifier) {
                     ){
 
                         Text(
-                            text = "Random Cat Fact",
+                            text = fact,
                             fontWeight = FontWeight.Medium
                         )
                     }
@@ -90,7 +99,9 @@ fun MainScreen(modifier: Modifier) {
                     Spacer(modifier.height(82.dp))
 
                     ElevatedButton(
-                        onClick = {},
+                        onClick = {
+                            buttonClicked()
+                        },
                         modifier = modifier
                         ,
                         colors = ButtonDefaults.elevatedButtonColors(
@@ -113,11 +124,29 @@ fun MainScreen(modifier: Modifier) {
     }
 }
 
+@Composable
+fun MainScreen(
+    modifier: Modifier,
+    viewModel: MainViewModel = hiltViewModel()
+) {
+    val fact by viewModel.catFact.collectAsState()
+    MainScreenUI(
+        modifier = modifier,
+        fact = fact,
+        buttonClicked = {
+            viewModel.fetchCatFact()
+        }
+    )
+}
+
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun PreviewMainScreen() {
-    MainScreen(Modifier)
+    MainScreenUI(
+        Modifier,
+        "Cat's are awesome"
+    )
 }
 
 

@@ -59,3 +59,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 # DI
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroidCompiler" }
 
+#Kotlin Searlization
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+
+
