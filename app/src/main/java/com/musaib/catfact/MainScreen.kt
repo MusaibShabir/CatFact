@@ -14,6 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -63,7 +64,7 @@ fun MainScreenUI(
                     color = Color.Black
                 ),
                 elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
-                colors = CardDefaults.outlinedCardColors(containerColor = Color.White)
+                colors = CardDefaults.outlinedCardColors(containerColor = MaterialTheme.colorScheme.onSurface)
             ) {
                 Column(
                     modifier = modifier
@@ -76,7 +77,8 @@ fun MainScreenUI(
                     Text(
                         text = "New Cat Fact",
                         textDecoration = TextDecoration.Underline,
-                        fontWeight = FontWeight.Bold
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.surface
                     )
 
                     Spacer(modifier.height(12.dp))
@@ -93,7 +95,8 @@ fun MainScreenUI(
 
                         Text(
                             text = fact,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
+                            color = MaterialTheme.colorScheme.surface
                         )
                     }
 
