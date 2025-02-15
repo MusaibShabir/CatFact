@@ -62,7 +62,8 @@ fun MainScreenUI(
                     width = 0.5.dp,
                     color = Color.Black
                 ),
-                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+                colors = CardDefaults.outlinedCardColors(containerColor = Color.White)
             ) {
                 Column(
                     modifier = modifier
