@@ -100,7 +100,7 @@ fun MainScreenUI(
                         )
                     }
 
-                    Spacer(modifier.height(82.dp))
+                    Spacer(modifier.height(12.dp))
 
                     ElevatedButton(
                         onClick = {
