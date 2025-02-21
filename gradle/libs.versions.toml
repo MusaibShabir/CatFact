@@ -17,7 +17,7 @@ composeBom = "2025.02.00"
 ksp = "2.1.10-1.0.29"
 
 # Dependency Injection
-hiltAndroidCompiler = "2.52"
+hiltAndroidCompiler = "2.55"
 hiltNavigationCompose = "1.2.0"
 
 [libraries]
