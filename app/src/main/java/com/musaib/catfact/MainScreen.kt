@@ -39,7 +39,6 @@ fun MainScreenUI(
     fact: String,
     buttonClicked: () -> Unit = {},
 ) {
-
     Scaffold(
         modifier = modifier
             .fillMaxSize()
@@ -122,8 +121,6 @@ fun MainScreenUI(
                     }
                 }
             }
-
-
         }
     }
 }
